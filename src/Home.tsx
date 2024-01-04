@@ -111,7 +111,7 @@ const Home = (props: Props) => {
           >
             到計算機
           </Button>
-          <Button variant="contained" onClick={() => navigate("/content")}>
+          <Button variant="contained" onClick={() => navigate("/weather-map")}>
             到內容
           </Button>
         </Box>

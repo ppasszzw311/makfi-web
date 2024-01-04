@@ -31,7 +31,7 @@ import {
   MdOutlineTimeline,
   MdLayers,
 } from "react-icons/md";
-import L from "leaflet";
+import L, { map, latLng, tileLayer, MapOptions, Icon} from "leaflet";
 
 
 import icon from "../assets/images/location.png";
@@ -321,11 +321,11 @@ const WeatherMap = () => {
         </Box>
 
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {siteData.map((item) => {
+        {siteData.map((item: string[], index) => {
           const latLng = [Number(item[3]), Number(item[2])];
           return (
             <Marker
-              key={item.id}
+              key={index}
               position={latLng}
               icon={item[1].substring(0, 2) === "46" ? myIcon2 : myIcon1}
             >
@@ -388,7 +388,7 @@ const WeatherMap = () => {
               <ListItemText primary="Drafts" />
             </ListItemButton>
           </ListItem>
-          {siteData.map((item, index) => {
+          {siteData.map((item: string[], index) => {
             const latLng = [Number(item[3]), Number(item[2])];
             return (
               <CustomListItem
